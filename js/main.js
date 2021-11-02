@@ -5,6 +5,7 @@ const wrapGridEl = document.querySelector('.wrap-grid');
 
 // Gen Grid
 playBtn.addEventListener('click', () => {
+    // Import grid settings
     let cellsNumber;
     let cellsPerRow;
     switch (difficultySelect.value) {
@@ -20,27 +21,38 @@ playBtn.addEventListener('click', () => {
             cellsNumber = 49;
             cellsPerRow = 7;
     }
+
+    // Clear grid
     wrapGridEl.innerHTML = '';
+
+    // Create grid element
     const gridEl = document.createElement('div');
     gridEl.classList.add('grid');
     wrapGridEl.append(gridEl);
+
+    // Create square elements
     for (let i = 1; i <= cellsNumber; i++) {
+        // Call createSquareFunction
         const square = createSquareGrid(i, cellsPerRow);
+
+        // Add event listener to each square
         square.addEventListener('click', () => {
             square.classList.toggle('clicked');
         });
+
+        // Add square to grid
         gridEl.append(square);
     }
 });
 
 // FUNCTIONS
 function createSquareGrid(num, cells) {
-    const node = document.createElement('div');
-    const span = document.createElement('span');
-    node.classList.add('square');
-    node.style.width = `calc(100% / ${cells})`;
-    node.style.height = `calc(100% / ${cells})`;
-    span.append(num);
-    node.append(span);
-    return node;
+    const divNode = document.createElement('div');
+    const spanSubNode = document.createElement('span');
+    divNode.classList.add('square');
+    divNode.style.width = `calc(100% / ${cells})`;
+    divNode.style.height = `calc(100% / ${cells})`;
+    spanSubNode.append(num);
+    divNode.append(spanSubNode);
+    return divNode;
 }
