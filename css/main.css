@@ -15,15 +15,12 @@ main {
 .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     margin: 60px auto;
-    border: 2px solid #000;
 }
 
 .square {
-    width: calc(100% / 8);
-    height: calc(100% / 8);
     display: flex;
     justify-content: center;
     align-items: center;
