@@ -28,6 +28,10 @@ main {
     cursor: pointer;
 }
 
+.square:hover {
+    background-color: #fff;
+}
+
 .square.clicked {
     background-color: #7ab7eb;
 }
